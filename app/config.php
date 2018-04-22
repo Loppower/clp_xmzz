@@ -258,9 +258,9 @@ return [
 
     'pageSize'=>15,
     //自定义配置
-    'sys_name' =>'CLTPHP',
+    'sys_name' =>'XMZZ',
     //文件上传
     'addwater'=>false,
-    'watertext'=>'CLTPHP',
+    'watertext'=>'XMZZ',
     'version'=>'5.5'
 ];

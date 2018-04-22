@@ -69,6 +69,8 @@ return [
     'content'=>'内容',
     'time'=>'时间',
     'title'=>'标题',
+    'wheat'=>'小麦',
+    'wheatType'=>'小麦种类',
 
 
     'Super administrator cannot be deleted'=>'超级管理员不可删除！',
