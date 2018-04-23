@@ -20,12 +20,6 @@
     <a href="{:url('edit')}?id={{d.id}}" class="layui-btn layui-btn-xs">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
-<script type="text/html" id="email">
-    {{d.email}}
-    {{# if(d.email && d.email_validated=='0'){ }}
-    (未验证)
-    {{# } }}
-</script>
 {include file="common/foot"/}
 <script>
     layui.use(['table','form'], function() {
@@ -40,7 +34,7 @@
                 {checkbox:true,fixed: true},
                 {field: 'id', title: '{:lang("id")}', width: 80, fixed: true},
                 {field: 'type_name', title: '种类名', width: 100},
-                {field: 'addtime', title: '添加时间', width: 150},
+                {field: 'create_time', title: '添加时间', width: 150},
                 {field: 'is_lock', align: 'center',title: '{:lang("status")}', width: 120,toolbar: '#is_lock'},
                 {width: 160, align: 'center', toolbar: '#action'}
             ]],

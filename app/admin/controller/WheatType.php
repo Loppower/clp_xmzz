@@ -20,6 +20,7 @@ class WheatType extends Common
             $list=db('wheat_type')->alias('w')
                 ->field('w.*')
                 ->where('w.type_name','like',"%".$key."%")
+                ->where('w.delete','=',0)
                 ->order('w.sort desc')
                 ->paginate(array('list_rows'=>$pageSize,'page'=>$page))
                 ->toArray();
@@ -38,6 +39,50 @@ class WheatType extends Common
             return ['status'=>1,'msg'=>'设置成功!'];
         }else{
             return ['status'=>0,'msg'=>'设置失败!'];
+        }
+    }
+    public function del(){
+        $res = \app\admin\model\WheatType::update(['delete'=>1],['id'=>input('id')]);
+        if ($res){
+            return  ['code'=>1,'msg'=>'删除成功!'];
+        }else{
+            return  ['code'=>1,'msg'=>'删除失败!'];
+        }
+    }
+    public function edit(){
+        if(request()->isPost()){
+            $data = input('post.');
+            if (\app\admin\model\WheatType::update($data)) {
+                $result['msg'] = '小麦类型修改成功!';
+                $result['url'] = url('index');
+                $result['code'] = 1;
+            } else {
+                $result['msg'] = '小麦类型修改失败!';
+                $result['code'] = 0;
+            }
+            return $result;
+        }else{
+            $info = \app\admin\model\WheatType::get(['id'=>input('id')]);
+            $this->assign('info', $info->toJson());
+            $this->assign('title',lang('edit').lang('wheatType'));
+            return view();
+        }
+    }
+
+    public function add()
+    {
+        if(request()->isPost()){
+            $data = input('post.');
+            //添加
+            if ( \app\admin\model\WheatType::create($data)) {
+                return ['code'=>1,'msg'=>'小麦类型添加成功!','url'=>url('index')];
+            } else {
+                return ['code'=>0,'msg'=>'小麦类型添加失败!'];
+            }
+        }else{
+            $this->assign('info','null');
+            $this->assign('title',lang('add').lang('wheatType'));
+            return view('edit');
         }
     }
 }

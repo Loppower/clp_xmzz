@@ -46,6 +46,7 @@ class Auth extends Common
             if($msg!='true'){
                 return $result = ['code'=>0,'msg'=>$msg];
             }
+
             //单独验证密码
             $checkPwd = Validate::is(input('post.pwd'),'require');
             if (false === $checkPwd) {

@@ -48,4 +48,37 @@ class Common extends Controller
     public function _empty(){
         return $this->error('空操作，返回上次访问页面中...');
     }
+
+    /**
+     * @param $db_name
+     * @param array $join
+     * 1:关联查询表名
+     * 2:condition 'w.id = wt.wheat_id'
+     * 3:type left/right
+     * @param $filed
+     * @param $where
+     * @param $order
+     * @return array|mixed
+     */
+    public function templateList($db_name,$join =array(),$filed,$where,$order){
+        if(request()->isPost()){
+            $key=input('post.key');
+            $page =input('page')?input('page'):1;
+            $pageSize =input('limit')?input('limit'):config('pageSize');
+            $db = db($db_name)->alias('db');
+            if (!count($join)){//如果二维数组join数不为0
+                foreach ($join as $jo) {
+                    $db =  $db->join(config('database.prefix').$jo['name'],$jo['condition'],$jo['type']);
+                }
+            }
+            $db = $db->field($filed)->where($where,'like',"%".$key."%")->order($order);
+            $list=$db->paginate(array('list_rows'=>$pageSize,'page'=>$page))
+                ->toArray();
+            foreach ($list['data'] as $k=>$v){
+                $list['data'][$k]['reg_time'] = date('Y-m-d H:s',$v['reg_time']);
+            }
+            return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
+        }
+        return $this->fetch();
+    }
 }

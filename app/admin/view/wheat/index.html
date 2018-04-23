@@ -3,6 +3,9 @@
     <fieldset class="layui-elem-field layui-field-title">
         <legend>{:lang('wheat')}{:lang('list')}</legend>
     </fieldset>
+    <blockquote class="layui-elem-quote">
+        <a href="{:url('add')}" class="layui-btn layui-btn-sm">{:lang('add')}{:lang('小麦')}</a>
+    </blockquote>
     <div class="demoTable">
         <div class="layui-inline">
             <input class="layui-input" name="key" id="key" placeholder="{:lang('pleaseEnter')}关键字">
@@ -19,12 +22,6 @@
 <script type="text/html" id="action">
     <a href="{:url('edit')}?id={{d.id}}" class="layui-btn layui-btn-xs">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-</script>
-<script type="text/html" id="email">
-    {{d.email}}
-    {{# if(d.email && d.email_validated=='0'){ }}
-    (未验证)
-    {{# } }}
 </script>
 {include file="common/foot"/}
 <script>
@@ -43,7 +40,7 @@
                 {field: 'type_name', title: '小麦种类', width: 100},
                 {field: 'img_url', title: '小麦图片', width: 100},
                 {field: 'is_lock', align: 'center',title: '{:lang("status")}', width: 120,toolbar: '#is_lock'},
-                {field: 'addtime', title: '添加时间', width: 150},
+                {field: 'create_time', title: '添加时间', width: 150},
                 {width: 160, align: 'center', toolbar: '#action'}
             ]],
             limit: 10 //每页默认显示的数量
@@ -80,7 +77,7 @@
                     var loading = layer.load(1, {shade: [0.1, '#fff']});
                     $.post("{:url('wheatDel')}",{id:data.id},function(res){
                         layer.close(loading);
-                        if(res.code===1){
+                        if(res.delete===1){
                             layer.msg(res.msg,{time:1000,icon:1});
                             tableIn.reload();
                         }else{
