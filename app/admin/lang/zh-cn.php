@@ -71,6 +71,7 @@ return [
     'title'=>'标题',
     'wheat'=>'小麦',
     'wheatType'=>'小麦种类',
+    'bch'=>'病虫害',
 
 
     'Super administrator cannot be deleted'=>'超级管理员不可删除！',

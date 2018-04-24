@@ -1,5 +1,5 @@
 -- CLTPHP SQL Backup
--- Time:2018-04-24 00:10:46
+-- Time:2018-04-25 00:31:12
 -- http://www.cltphp.com 
 
 --
@@ -176,7 +176,7 @@ CREATE TABLE `clt_auth_rule` (
   `zt` int(1) DEFAULT NULL,
   `menustatus` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=279 DEFAULT CHARSET=utf8 COMMENT='权限节点';
+) ENGINE=MyISAM AUTO_INCREMENT=282 DEFAULT CHARSET=utf8 COMMENT='权限节点';
 
 -- 
 -- 导出`clt_auth_rule`表中的数据 `clt_auth_rule`
@@ -318,6 +318,8 @@ INSERT INTO `clt_auth_rule` VALUES (274,'Wheat/index','小麦管理',1,1,1,'icon
 INSERT INTO `clt_auth_rule` VALUES (275,'Wheat/index','小麦列表',1,1,1,'','',274,10,1521959084,0,1);
 INSERT INTO `clt_auth_rule` VALUES (276,'Wheat/edit','操作-编辑',1,1,1,'','',275,20,1521960875,0,1);
 INSERT INTO `clt_auth_rule` VALUES (278,'WheatType/index','小麦类型',1,1,1,'','',274,2,1521963280,0,1);
+INSERT INTO `clt_auth_rule` VALUES (279,'Strategy/template_index','小麦策略管理',1,1,1,'','',0,2,1524582937,0,1);
+INSERT INTO `clt_auth_rule` VALUES (281,'Strategy/bch_index','防病虫策略',1,1,1,'','',279,1,1524583106,0,1);
 --
 -- 表的结构 `clt_category`
 -- 
@@ -4629,30 +4631,25 @@ CREATE TABLE `clt_wheat` (
 --
 INSERT INTO `clt_wheat` VALUES (10,'小麦1','http://www.cltphp.com/',16,1,0,1495183645,1,0);
 --
--- 表的结构 `clt_wheat_bch`
+-- 表的结构 `clt_wheat_strategy`
 -- 
-DROP TABLE IF EXISTS `clt_wheat_bch`;
-CREATE TABLE `clt_wheat_bch` (
+DROP TABLE IF EXISTS `clt_wheat_strategy`;
+CREATE TABLE `clt_wheat_strategy` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL COMMENT '方案名称',
-  `sort` int(5) DEFAULT '50' COMMENT '排序',
-  `addtime` int(11) NOT NULL COMMENT '添加时间',
-  `open` tinyint(2) NOT NULL DEFAULT '0' COMMENT '0禁用1启用',
-  `create_by` int(5) NOT NULL,
-  `wheat_id` int(5) NOT NULL COMMENT '小麦id',
-  `plan_url` varchar(255) DEFAULT NULL COMMENT '方案链接',
+  `strategy_name` varchar(50) NOT NULL COMMENT '策略名称',
+  `strategy_content` text COMMENT '策略内容',
+  `type` char(5) DEFAULT NULL COMMENT '策略类型',
+  `create_time` int(11) NOT NULL COMMENT '添加时间',
+  `update_time` int(11) DEFAULT NULL,
+  `is_lock` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0禁用1启用',
+  `delete` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- 
--- 导出`clt_wheat_bch`表中的数据 `clt_wheat_bch`
+-- 导出`clt_wheat_strategy`表中的数据 `clt_wheat_strategy`
 --
-INSERT INTO `clt_wheat_bch` VALUES (10,'CLTPHP',1,1495183645,1,0,0,0);
-INSERT INTO `clt_wheat_bch` VALUES (8,'CLTPHP内容管理系统',2,1484791374,1,0,0,0);
-INSERT INTO `clt_wheat_bch` VALUES (11,'CLTPHP动态',3,1499765975,1,0,0,0);
-INSERT INTO `clt_wheat_bch` VALUES (12,'关于我们',4,1499766009,1,0,0,0);
-INSERT INTO `clt_wheat_bch` VALUES (13,'CLTPHP相关知识',5,1499766031,1,0,0,0);
-INSERT INTO `clt_wheat_bch` VALUES (15,'有你有我影视',6,1501030917,1,0,0,0);
+INSERT INTO `clt_wheat_strategy` VALUES (1,'虫1','从前有一种虫害','bch',11111,0,0,0);
 --
 -- 表的结构 `clt_wheat_type`
 -- 
