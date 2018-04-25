@@ -4,7 +4,7 @@
         <legend>{:lang('bch')}{:lang('list')}</legend>
     </fieldset>
     <blockquote class="layui-elem-quote">
-        <a href="{:url('add')}" class="layui-btn layui-btn-sm">{:lang('add')}{:lang('病虫害防治策略')}</a>
+        <a href="{:url('bch_add')}" class="layui-btn layui-btn-sm">{:lang('add')}{:lang('病虫害防治策略')}</a>
     </blockquote>
     <div class="demoTable">
         <div class="layui-inline">
@@ -20,7 +20,7 @@
     <input type="checkbox" name="is_lock" value="{{d.id}}" lay-skin="switch" lay-text="正常|禁用" lay-filter="is_lock" {{ d.is_lock == 0 ? 'checked' : '' }}>
 </script>
 <script type="text/html" id="action">
-    <a href="{:url('edit')}?id={{d.id}}" class="layui-btn layui-btn-xs">编辑</a>
+    <a href="{:url('bch_edit')}?id={{d.id}}" class="layui-btn layui-btn-xs">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 {include file="common/foot"/}
@@ -73,7 +73,7 @@
             if (obj.event === 'del') {
                 layer.confirm('您确定要删除该小麦吗？', function(index){
                     var loading = layer.load(1, {shade: [0.1, '#fff']});
-                    $.post("{:url('wheatDel')}",{id:data.id},function(res){
+                    $.post("{:url('del')}",{id:data.id},function(res){
                         layer.close(loading);
                         if(res.delete===1){
                             layer.msg(res.msg,{time:1000,icon:1});

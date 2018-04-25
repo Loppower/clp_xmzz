@@ -1,5 +1,5 @@
 -- CLTPHP SQL Backup
--- Time:2018-04-25 00:31:12
+-- Time:2018-04-25 23:12:35
 -- http://www.cltphp.com 
 
 --
@@ -4644,12 +4644,14 @@ CREATE TABLE `clt_wheat_strategy` (
   `is_lock` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0禁用1启用',
   `delete` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- 
 -- 导出`clt_wheat_strategy`表中的数据 `clt_wheat_strategy`
 --
-INSERT INTO `clt_wheat_strategy` VALUES (1,'虫1','从前有一种虫害','bch',11111,0,0,0);
+INSERT INTO `clt_wheat_strategy` VALUES (1,'虫1','从前有一种虫害','bch',11111,0,0,1);
+INSERT INTO `clt_wheat_strategy` VALUES (2,'虫2','<p>啊发生的睡的更舒服</p>','bch',1524654550,1524654550,0,0);
+INSERT INTO `clt_wheat_strategy` VALUES (3,'虫3','<p>是根深蒂固喝点水</p>','bch',1524654801,1524654801,0,0);
 --
 -- 表的结构 `clt_wheat_type`
 -- 

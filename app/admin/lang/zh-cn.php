@@ -72,6 +72,7 @@ return [
     'wheat'=>'小麦',
     'wheatType'=>'小麦种类',
     'bch'=>'病虫害',
+    'strategy_content'=>'策略内容',
 
 
     'Super administrator cannot be deleted'=>'超级管理员不可删除！',

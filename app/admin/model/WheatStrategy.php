@@ -11,7 +11,7 @@ namespace app\admin\model;
 
 use think\Model;
 
-class Strategy extends Model
+class WheatStrategy extends Model
 {
     protected $type = [
         // 设置addtime为时间戳类型（整型）
