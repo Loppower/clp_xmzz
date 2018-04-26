@@ -19,6 +19,11 @@ class Strategy extends Common
         $pageSize =input('limit')?input('limit'):config('pageSize');
         return WheatStrategy::getListByType($type,$key,$pageSize,$page);
     }
+
+    /**
+     * 实际开发中，不可能直接删除数据，而是将数据delete标记置为1，表示删除
+     * @return array
+     */
     public function del(){
         db('wheat_strategy')->where(['id'=>input('id')])->update(['delete'=>1]);
         return $result = ['delete'=>1,'msg'=>'删除成功!'];
