@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="__HOME__/css/base.css" id="camera-css" />
     <link rel="stylesheet" href="__HOME__/css/framework.css" />
     <link rel="stylesheet" href="__HOME__/css/style.css" />
+    <link rel="stylesheet" href="__HOME__/css/search.css" />
     <link rel="stylesheet" href="__HOME__/css/noscript.css" media="screen,all" id="noscript" />
 
     <!-- ////////////////////////////////// -->
@@ -49,6 +50,7 @@
     <script src="__HOME__/js/faq-functions.js"></script>
     <script src="__HOME__/js/isotope.js"></script>
     <script src="__HOME__/js/theme-functions.js"></script>
+    <script src="__HOME__/js/search.js"></script>
     <script>
         //设为首页 www.jb51.net
         function SetHome(obj,url){
@@ -114,21 +116,6 @@
         <nav id="mainmenu">
             <ul id="menu">
                 <li {if condition="$controller eq 'index'"}class="selected"{/if}><a href="{:url('home/index/index')}" title="CLTPHP内容管理系统">首页</a></li>
-
-                {volist name="category" id="vo"}
-                <li {if condition="$controller eq $vo['catdir']"}class="selected"{/if}>
-                    {if condition="$vo['child'] eq 1"}
-                        <a href="#">{$vo.catname}</a>
-                        <ul>
-                            {volist name="$vo.sub" id="v"}
-                                <li><a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$v['id']] )}" title="{$v.catname}-CLTPHP内容管理系统"><span>-</span> {$v.catname}</a></li>
-                            {/volist}
-                        </ul>
-                    {else /}
-                        <a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']] )}" title="{$vo.catname}-CLTPHP内容管理系统">{$vo.catname}</a>
-                    {/if}
-                </li>
-                {/volist}
             </ul>
         </nav>
         <!-- mainmenu end here -->
