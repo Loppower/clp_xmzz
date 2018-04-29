@@ -98,7 +98,6 @@
             <ul>
                 <li><a href="javascript:void(0);" onclick="SetHome(this,'{:config('url_domain_root')}');">设为首页</a></li>
                 <li><a href="javascript:void(0);" onclick="AddFavorite('{:config('sys_name')}','{:config('url_domain_root')}')">加入收藏</a></li>
-                <li><a href="{:url('user/index/index')}" target="_blank">{if condition="session('user.username')"}{:session('user.username')}{else/}会员中心{/if}</a></li>
             </ul>
         </div>
     </div>
@@ -109,13 +108,13 @@
     <div id="main-wrapper">
         <!-- logo start here -->
         <div id="logo">
-            <a href="{:url('home/index/index')}" title="CLTPHP内容管理系统"><img src="__PUBLIC__{$sys.logo}" alt="mainlogo" /></a>
+            <a href="{:url('home/index/index')}" title="XMZZ小麦种植决策系统"><img src="__PUBLIC__{$sys.logo}" alt="mainlogo" /></a>
         </div>
         <!-- logo end here -->
         <!-- mainmenu start here -->
         <nav id="mainmenu">
             <ul id="menu">
-                <li {if condition="$controller eq 'index'"}class="selected"{/if}><a href="{:url('home/index/index')}" title="CLTPHP内容管理系统">首页</a></li>
+                <li {if condition="$controller eq 'index'"}class="selected"{/if}><a href="{:url('home/index/index')}" title="XMZZ小麦种植决策系统">首页</a></li>
             </ul>
         </nav>
         <!-- mainmenu end here -->
