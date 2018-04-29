@@ -5,30 +5,24 @@
     </fieldset>
     <form class="layui-form layui-form-pane">
         <div class="layui-form-item">
-            <label class="layui-form-label">小麦名</label>
+            <label class="layui-form-label">{:lang('肥料名')}</label>
             <div class="layui-input-4">
-                <select name="wheat_id" lay-verify="required" ng-model="field.wheat_id" ng-options="v.id as v.name for v in allWheat" ng-selected="v.id==field.wheat_id">
-                    <option value="">请选择小麦名</option>
-                </select>
+                <input type="text" name="strategy_name" ng-model="field.strategy_name" lay-verify="required" placeholder="{:lang('pleaseEnter')}肥料名称" class="layui-input">
             </div>
         </div>
-
         <div class="layui-form-item">
-            <label class="layui-form-label">病虫害策略名</label>
+            <label class="layui-form-label">{:lang('strategy_content')}</label>
             <div class="layui-input-4">
-                <select name="bch_id" lay-verify="required" ng-model="field.bch_id" ng-options="v.id as v.strategy_name for v in allBch" ng-selected="v.id==field.bch_id">
-                    <option value="">请选择病虫害策略</option>
-                </select>
+                {include file="common/ueditor"/}
             </div>
+            <input type="hidden" name="type" value="manure">
         </div>
-
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button type="button" class="layui-btn" lay-submit="" lay-filter="submit">{:lang('submit')}</button>
-                <a href="{:url('index')}" class="layui-btn layui-btn-primary">{:lang('back')}</a>
+                <a href="{:url('manure_index')}" class="layui-btn layui-btn-primary">{:lang('back')}</a>
             </div>
         </div>
-
     </form>
 </div>
 {include file="common/foot"/}
@@ -37,8 +31,6 @@
     var m = angular.module('hd',[]);
     m.controller('ctrl',['$scope',function($scope) {
         $scope.field ={$info};
-        $scope.allWheat ={$allWheat};
-        $scope.allBch ={$allBch};
         layui.use(['form', 'layer'], function () {
             var form = layui.form, layer = layui.layer,$= layui.jquery;
             form.render();
@@ -48,7 +40,7 @@
                     data.field.id = $scope.field.id;
                 }
                 $.post("", data.field, function (res) {
-                    layer.close(loading);
+                    console.log(res);
                     if (res.code > 0) {
                         layer.msg(res.msg, {time: 1800, icon: 1}, function () {
                             location.href = res.url;

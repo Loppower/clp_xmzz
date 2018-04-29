@@ -56,6 +56,16 @@ class Scheme extends Common
             $data['wheat_id'] = $wheat_id[1];
             $bch_id =explode(':',$data['bch_id']);
             $data['bch_id'] = $bch_id[1];
+
+            $wheat_id =explode(':',$data['wheat_id']);
+            $data['wheat_id'] = $wheat_id[1];
+            $water_id =explode(':',$data['water_id']);
+            $data['water_id'] = $water_id[1];
+
+            $wheat_id =explode(':',$data['wheat_id']);
+            $data['wheat_id'] = $wheat_id[1];
+            $manure_id =explode(':',$data['manure_id']);
+            $data['manure_id'] = $manure_id[1];
 //在后面添加新的模块
             if (WheatScheme::update($data) !== false) {
                 $result['msg'] = '修改成功!';
@@ -92,7 +102,19 @@ class Scheme extends Common
             $data['wheat_id'] = $wheat_id[1];
             $bch_id =explode(':',$data['bch_id']);
             $data['bch_id'] = $bch_id[1];
+
+            $wheat_id =explode(':',$data['wheat_id']);
+            $data['wheat_id'] = $wheat_id[1];
+            $water_id =explode(':',$data['water_id']);
+            $data['water_id'] = $water_id[1];
+
+            $wheat_id =explode(':',$data['wheat_id']);
+            $data['wheat_id'] = $wheat_id[1];
+            $manure_id =explode(':',$data['manure_id']);
+            $data['manure_id'] = $manure_id[1];
             //在后面添加新的模块数据
+
+
             $data['delete'] = 0;
             //添加
             if (WheatScheme::create($data)) {
@@ -116,5 +138,15 @@ class Scheme extends Common
         $this->assign('allWheat',json_encode($wheat,true));
         $wheat_strategy = db('wheat_strategy')->where(array('delete'=>0))->where(array('type'=>'bch'))->select();
         $this->assign('allBch',json_encode($wheat_strategy,true));
+
+        $wheat = db('Wheat')->where(array('delete'=>0))->select();
+        $this->assign('allWheat',json_encode($wheat,true));
+        $wheat_strategy = db('wheat_strategy')->where(array('delete'=>0))->where(array('type'=>'water'))->select();
+        $this->assign('allWater',json_encode($wheat_strategy,true));
+
+        $wheat = db('Wheat')->where(array('delete'=>0))->select();
+        $this->assign('allWheat',json_encode($wheat,true));
+        $wheat_strategy = db('wheat_strategy')->where(array('delete'=>0))->where(array('type'=>'manure'))->select();
+        $this->assign('allManure',json_encode($wheat_strategy,true));
     }
 }
