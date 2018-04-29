@@ -99,4 +99,52 @@ class Strategy extends Common
     {
         return $this->add('bch');
     }
+    /**
+     * water
+     * 通过传入不同type标记即可实现不同页面的显示
+     * @return array|mixed
+     */
+
+    public function water_index()
+    {
+        if(request()->isPost()){
+            $list =  $this->index('water');
+            return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
+        }
+        return $this->fetch();
+    }
+
+    public function water_edit()
+    {
+        return $this->edit('water');
+    }
+    public function water_add()
+    {
+        return $this->add('water');
+    }
+
+    /**
+     * manure肥料
+     * 通过传入不同type标记即可实现不同页面的显示
+     * @return array|mixed
+     */
+
+    public function manure_index()
+    {
+        if(request()->isPost()){
+            $list =  $this->index('manure');
+            return $result = ['code'=>0,'msg'=>'获取成功!','data'=>$list['data'],'count'=>$list['total'],'rel'=>1];
+        }
+        return $this->fetch();
+    }
+
+    public function manure_edit()
+    {
+        return $this->edit('manure');
+    }
+    public function manure_add()
+    {
+        return $this->add('manure');
+    }
+
 }
