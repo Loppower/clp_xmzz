@@ -11,7 +11,7 @@
             <input class="layui-input" name="key" id="key" placeholder="{:lang('pleaseEnter')}关键字">
         </div>
         <button class="layui-btn" id="search" data-type="reload">搜索</button>
-        <a href="{:url('index')}" class="layui-btn">显示全部</a>
+        <a href="{:url('water_index')}" class="layui-btn">显示全部</a>
         <button type="button" class="layui-btn layui-btn-danger" id="delAll">批量删除</button>
     </div>
     <table class="layui-table" id="list" lay-filter="list"></table>
@@ -71,7 +71,7 @@
         table.on('tool(list)', function(obj) {
             var data = obj.data;
             if (obj.event === 'del') {
-                layer.confirm('您确定要删除该小麦吗？', function(index){
+                layer.confirm('您确定要删除该水分方案吗？', function(index){
                     var loading = layer.load(1, {shade: [0.1, '#fff']});
                     $.post("{:url('del')}",{id:data.id},function(res){
                         layer.close(loading);

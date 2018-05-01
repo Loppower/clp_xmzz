@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="zh-cn"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="zh-cn"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-cn"> <!--<![endif]-->
+
+<html>
+<head>
+
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="always" name="referrer">
+    <meta name="theme-color" content="#2932e1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="keywords" content="{if condition=" $info[
+    'keywords']"}{$info.keywords}{elseif condition="$keywords" /}{$keywords}{else}{$sys.key}{/if}" />
+    <meta name="description" content="{if condition=" $info[
+    'description']"}{$info.description}{elseif condition="$description" /}{$description}{else}{$sys.des}{/if}" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="search" type="application/opensearchdescription+xml" href="/content-search.xml" title="XMZZ搜索">
+
+    <title>XMZZ一下，你就知道</title>
+
+    <!-- ////////////////////////////////// -->
+    <!-- //      Javascript Files        // -->
+    <!-- ////////////////////////////////// -->
+    <script>
+        var HOME = '__HOME__';
+    </script>
+    <script src="__HOME__/js/jquery.min.js"></script>
+    <script src="__HOME__/js/jquery.easing-1.3.min.js"></script>
+    <script src="__HOME__/js/jquery.ui.totop.min.js"></script>
+    <style id="css_index" index="index" type="text/css">html, body {
+        height: 100%
+    }
+
+    html {
+        overflow-y: auto
+    }
+
+    body {
+        font: 12px arial;
+        margin: 0;
+        padding: 0;
+        background: url(__HOME__/images/slideshow/bg-slide3.jpg);
+        repeat: no-repeat;
+        background-attachment: fixed;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='__HOME__/images/slideshow/bg-slide3.jpg', sizingMethod='scale');
+        -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='__HOME__/images/slideshow/bg-slide3.jpg', sizingMethod='scale');
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+    }
+
+    body, p, form, ul, li {
+        margin: 0;
+        padding: 0;
+        list-style: none
+    }
+    </style>
+</head>
+
+<body link="#0000cc">
+<script>
+    if (/Chrome\/37.0.2062.94/i.test(navigator.userAgent) && (/(windows 7)|(windows nt 6.1)/i.test(navigator.userAgent))) {
+        var _chrome_37_fix = document.createElement("style");
+        _chrome_37_fix.type = "text/css";
+        _chrome_37_fix.setAttribute("data-for", "result");
+        _chrome_37_fix.innerHTML = ".t,.f16,#kw,.s_ipt,.c-title,.c-title-size,.to_zhidao,.to_tieba,.to_zhidao_bottom{font-size:15px;} .ec-hospital-info-main h2,.ad-widget-gx_sck-ylzx-doctor-info h2,.ec-card-main h2,.ad-widget-h1 h2,.ad-widget-title h2,.ad-widget-small-head h2,.ad-widget-small-head h2 a,.ad-widget-header .ec-figcaption h2{font-size: 15px !important;}";
+        document.getElementsByTagName("head")[0].appendChild(_chrome_37_fix);
+    }
+</script>
+<div id="wrapper" style="display: block;">
+    <div id="nav-wrap" style="display: block;">
+        <!-- 信息流-begin -->
+        <div class="nav-news clearfix" style="opacity: 0.95; min-height: 598px;">
+            <!-- 左侧信息流-begin -->
+            <div class="news-left">
+                <div class="news-bd-wrapper">
+                    <ul id="news-content-youlike" data-c="youlike" data-pid="channel_youlike"
+                        class="news-content-wrapper news-content-active">
+                        {if condition="isset($data) && !empty($data)"}
+                        {volist name="data" id="vo"}
+                        <li id="id-youlike-00" class="news-packet packet-news3" data-newstype="jrbd">
+                            <a class="news-link clearfix" data-title={$vo.abstract}
+                               href="detail?id={$vo['id']}" target="_blank"><h2
+                                    class="news3-h2"><span class="news3-link"> {$vo.abstract}</span></h2>
+                                <div class="news3-images"><span class="images-link news3-images-link">
+                                    <img class="news3-image" src="{$vo.img_url}" style="width: 100px;height: 80px"></span>
+                                </div>
+                                <div class="news3-info"><span class="news3-from"></span></div>
+                            </a>
+                        </li>
+                        {/volist}
+                        {/if}
+                        {if condition="empty($data)"}
+                            <H3>很抱歉，您搜索的结果不存在，请换个关键词搜索</H3>
+                        {/if}
+                    </ul>
+                </div>
+                <!-- 信息流-end -->
+            </div>
+        </div>
+
+        <script>
+            window.__async_strategy = 2;
+        </script>
+
+</body>
+</html>

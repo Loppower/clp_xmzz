@@ -34,14 +34,17 @@
             page: true,
             cols: [[
                 {checkbox:true,fixed: true},
-                {field: 'id', title: '{:lang("id")}', width: 80, fixed: true},
+                {field: 'id', title: '{:lang("id")}', width: 60, fixed: true},
                 {field: 'name', title: '小麦名', width: 100},
-                {field: 'type_name', title: '小麦种类', width: 120},
+                {field: 'type_name', title: '小麦种类', width: 80},
                 {field: 'img_url', title: '小麦图片地址', width: 150},
                 {field: 'bch_name', title: '病虫害策略', width: 120},
+                {field: 'water_name', title: '水分策略', width: 120},
+                {field: 'manure_name', title: '施肥策略', width: 120},
 
                 {field: 'create_time', title: '添加时间', width: 150},
                 {field: 'is_lock', align: 'center',title: '{:lang("status")}', width: 120,toolbar: '#is_lock'},
+                {field: 'abstract', title: '摘要', width: 200},
                 {width: 160, align: 'center', toolbar: '#action'}
             ]],
             limit: 10 //每页默认显示的数量

@@ -53,6 +53,7 @@ class Common extends Controller{
 		$this->assign('linkList', $linkList);
     }
     public function _empty(){
+
         return $this->error('空操作，返回上次访问页面中...');
     }
 }

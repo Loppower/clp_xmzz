@@ -12,14 +12,7 @@ class Wheat extends Common
             $key=input('post.key');
             $page =input('page')?input('page'):1;
             $pageSize =input('limit')?input('limit'):config('pageSize');
-            $list=db('wheat')->alias('w')
-                ->join(config('database.prefix').'wheat_type wt','w.type_id = wt.id','left')
-                ->field('w.*,wt.type_name')
-                ->where('w.name|wt.type_name','like',"%".$key."%")
-                ->where('w.delete','=',0)
-                ->order('w.sort desc')
-                ->paginate(array('list_rows'=>$pageSize,'page'=>$page))
-                ->toArray();
+            $list= \app\admin\model\Wheat::getList($key,$pageSize,$page);
             foreach ($list['data'] as $k=>$v){
                 $list['data'][$k]['reg_time'] = date('Y-m-d H:s',$v['reg_time']);
             }

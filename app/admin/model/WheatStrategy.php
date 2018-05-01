@@ -15,8 +15,8 @@ class WheatStrategy extends Model
 {
     protected $type = [
         // 设置addtime为时间戳类型（整型）
-        'create_time' => 'timestamp:Y-m-d H:i:s',
-        'update_time' => 'timestamp:Y-m-d H:i:s',
+        'create_time' => 'timestamp:Y-m-d',
+        'update_time' => 'timestamp:Y-m-d',
     ];
     protected $update = [];
 
@@ -24,14 +24,12 @@ class WheatStrategy extends Model
 
     public static function getListByType($type, $key, $pageSize, $page)
     {
-        $db = db('wheat_strategy')->alias('s');
-        $arr =  $db->field('s.*')
-            ->where('s.strategy_name', 'like', "%" . $key . "%")
-            ->where('s.delete', '=', 0)
-            ->where('s.type', '=', $type)
+        $strategy = new WheatStrategy;
+        $arr = $strategy->where('strategy_name', 'like', "%" . $key . "%")
+            ->where('delete', '=', 0)
+            ->where('type', '=', $type)
             ->paginate(array('list_rows' => $pageSize, 'page' => $page))
             ->toArray();
-//        dump($db->getLastSql());
         return $arr;
     }
 }

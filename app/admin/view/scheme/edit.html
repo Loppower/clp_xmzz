@@ -21,6 +21,22 @@
                 </select>
             </div>
         </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">水分管理策略名</label>
+            <div class="layui-input-4">
+                <select name="water_id" lay-verify="required" ng-model="field.water_id" ng-options="v.id as v.strategy_name for v in allWater" ng-selected="v.id==field.water_id">
+                    <option value="">请选择病虫害策略</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">施肥策略名</label>
+            <div class="layui-input-4">
+                <select name="manure_id" lay-verify="required" ng-model="field.manure_id" ng-options="v.id as v.strategy_name for v in allManure" ng-selected="v.id==field.manure_id">
+                    <option value="">请选择病虫害策略</option>
+                </select>
+            </div>
+        </div>
 
         <div class="layui-form-item">
             <div class="layui-input-block">
@@ -39,6 +55,8 @@
         $scope.field ={$info};
         $scope.allWheat ={$allWheat};
         $scope.allBch ={$allBch};
+        $scope.allWater ={$allWater};
+        $scope.allManure ={$allManure};
         layui.use(['form', 'layer'], function () {
             var form = layui.form, layer = layui.layer,$= layui.jquery;
             form.render();
