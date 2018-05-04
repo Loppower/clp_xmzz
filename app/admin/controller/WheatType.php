@@ -67,6 +67,7 @@ class WheatType extends Common
     {
         if(request()->isPost()){
             $data = input('post.');
+            $data['delete'] = 0;
             //添加
             if ( \app\admin\model\WheatType::create($data)) {
                 return ['code'=>1,'msg'=>'小麦类型添加成功!','url'=>url('index')];

@@ -3,6 +3,9 @@
     <fieldset class="layui-elem-field layui-field-title">
         <legend>{:lang('wheatType')}{:lang('list')}</legend>
     </fieldset>
+    <blockquote class="layui-elem-quote">
+        <a href="{:url('add')}" class="layui-btn layui-btn-sm">{:lang('add')}{:lang('小麦')}</a>
+    </blockquote>
     <div class="demoTable">
         <div class="layui-inline">
             <input class="layui-input" name="key" id="key" placeholder="{:lang('pleaseEnter')}关键字">
@@ -70,7 +73,7 @@
             if (obj.event === 'del') {
                 layer.confirm('您确定要删除该小麦吗？', function(index){
                     var loading = layer.load(1, {shade: [0.1, '#fff']});
-                    $.post("{:url('wheatTypeDel')}",{id:data.id},function(res){
+                    $.post("{:url('del')}",{id:data.id},function(res){
                         layer.close(loading);
                         if(res.code===1){
                             layer.msg(res.msg,{time:1000,icon:1});

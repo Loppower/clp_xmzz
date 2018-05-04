@@ -54,7 +54,7 @@ class Wheat extends Common
             $this->assign('selected',json_encode($selected,true));
             $this->assign('info', $info->toJson());
             $this->assign('wheatType',json_encode($wheatType,true));
-            $this->assign('title',lang('edit').lang('admin'));
+            $this->assign('title',lang('edit').lang('wheat'));
             return view();
         }
     }
